@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessible Web Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      text-align: center;
+      background-color: #4CAF50;
+      padding: 20px;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+    }
+    main {
+      margin: 20px;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .button {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .button:focus, .button:hover {
+      background-color: #005fa3;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<header role="banner">
+  <h1>Welcome to Our Accessible Web Page</h1>
+  <p>Making the web accessible for everyone</p>
+</header>
+
+<main role="main">
+  <section aria-labelledby="card-section">
+    <h2 id="card-section">Featured Cards</h2>
+
+    <div class="card" role="region" aria-labelledby="card1-title">
+      <h3 id="card1-title">Card 1</h3>
+      <img src="https://via.placeholder.com/400x200" alt="Placeholder image showing a scenic landscape" />
+      <p>Some information about Card 1.</p>
+      <a href="#" class="button" role="button" aria-label="Learn more about Card 1">Learn More</a>
+    </div>
+
+    <div class="card" role="region" aria-labelledby="card2-title">
+      <h3 id="card2-title">Card 2</h3>
+      <img src="https://via.placeholder.com/400x200" alt="Placeholder image showing a person working on a laptop" />
+      <p>Some information about Card 2.</p>
+      <a href="#" class="button" role="button" aria-label="Learn more about Card 2">Learn More</a>
+    </div>
+
+    <div class="card" role="region" aria-labelledby="card3-title">
+      <h3 id="card3-title">Card 3</h3>
+      <img src="https://via.placeholder.com/400x200" alt="Placeholder image showing a city skyline" />
+      <p>Some information about Card 3.</p>
+      <a href="#" class="button" role="button" aria-label="Learn more about Card 3">Learn More</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-us">
+    <h2 id="contact-us">Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us.</p>
+    <a href="mailto:contact@example.com" class="button" role="button" aria-label="Email us">Email Us</a>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <p>&copy; 2025 Accessible Web Page. All rights reserved.</p>
+</footer>
+
+<script>
+  // Example of keyboard navigation for button focus
+  document.querySelectorAll('.button').forEach(function(button) {
+    button.addEventListener('focus', function() {
+      button.style.outline = '3px solid #ffcc00'; // Highlight button when focused
+    });
+    button.addEventListener('blur', function() {
+      button.style.outline = 'none'; // Remove focus outline when blur
+    });
+  });
+</script>
+
+</body>
+</html>

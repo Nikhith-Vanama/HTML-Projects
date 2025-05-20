@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .media {
+      margin-bottom: 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    video, audio, iframe {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .download-link:hover {
+      background-color: #005fa3;
+    }
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My Media Portfolio</h1>
+  <p>Showcasing my latest projects and creations</p>
+</header>
+
+<section>
+
+  <div class="media">
+    <h2>Project Demo Video</h2>
+    <video controls>
+      <source src="your-video-file.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="media">
+    <h2>Music Composition</h2>
+    <audio controls>
+      <source src="your-audio-file.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="media">
+    <h2>Document Preview</h2>
+    <iframe src="https://docs.google.com/gview?url=https://example.com/your-file.pdf&embedded=true" frameborder="0" style="height:500px;"></iframe>
+    <br>
+    <a class="download-link" href="your-file.pdf" download>Download PDF</a>
+  </div>
+
+</section>
+
+<footer>
+  <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
