@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipe Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      background-color: #f8b400;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    section {
+      margin: 20px auto;
+      max-width: 900px;
+    }
+    article {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .timer {
+      font-size: 20px;
+      color: #d9534f;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to My Recipe Collection</h1>
+  <p>Delicious recipes for all occasions</p>
+</header>
+
+<section>
+  <!-- Recipe 1 -->
+  <article>
+    <h2>Spaghetti Carbonara</h2>
+    <img src="https://via.placeholder.com/800x400" alt="Spaghetti Carbonara">
+    <p>A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.</p>
+    
+    <h3>Ingredients:</h3>
+    <ul>
+      <li>200g spaghetti</li>
+      <li>100g pancetta</li>
+      <li>2 large eggs</li>
+      <li>50g Pecorino Romano cheese</li>
+      <li>50g Parmesan cheese</li>
+      <li>Freshly ground black pepper</li>
+    </ul>
+    
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Boil the spaghetti in salted water until al dente.</li>
+      <li>Fry the pancetta in a pan until crispy.</li>
+      <li>Whisk eggs and cheese together in a bowl.</li>
+      <li>Drain the spaghetti and combine with pancetta and egg mixture.</li>
+      <li>Serve with extra cheese and freshly ground black pepper.</li>
+    </ol>
+
+    <div class="timer" id="timer">Cooking Time: 20 minutes</div>
+  </article>
+
+  <!-- Recipe 2 -->
+  <article>
+    <h2>Chicken Caesar Salad</h2>
+    <img src="https://via.placeholder.com/800x400" alt="Chicken Caesar Salad">
+    <p>A healthy and delicious salad with grilled chicken, crisp lettuce, and creamy Caesar dressing.</p>
+    
+    <h3>Ingredients:</h3>
+    <ul>
+      <li>2 chicken breasts</li>
+      <li>100g romaine lettuce</li>
+      <li>50g Parmesan cheese</li>
+      <li>Caesar dressing</li>
+      <li>Croutons</li>
+    </ul>
+    
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Grill the chicken breasts until fully cooked and slice them.</li>
+      <li>Toss the lettuce with Caesar dressing in a bowl.</li>
+      <li>Add sliced chicken and top with croutons and Parmesan.</li>
+    </ol>
+
+    <div class="timer" id="timer2">Preparation Time: 15 minutes</div>
+  </article>
+  
+</section>
+
+<!-- User Submitted Recipe Form -->
+<section class="form-container">
+  <h2>Submit Your Own Recipe</h2>
+  <form id="recipe-form">
+    <label for="recipe-name">Recipe Name:</label>
+    <input type="text" id="recipe-name" name="recipe-name" required>
+
+    <label for="recipe-ingredients">Ingredients:</label>
+    <textarea id="recipe-ingredients" name="recipe-ingredients" rows="4" required></textarea>
+
+    <label for="recipe-instructions">Instructions:</label>
+    <textarea id="recipe-instructions" name="recipe-instructions" rows="6" required></textarea>
+
+    <label for="recipe-image">Recipe Image URL:</label>
+    <input type="url" id="recipe-image" name="recipe-image" required>
+
+    <button type="submit">Submit Recipe</button>
+  </form>
+</section>
+
+<script>
+  // Timer functionality for cooking time
+  function startTimer() {
+    let timeLeft = 20; // 20 minutes for the first recipe
+    const timerElement = document.getElementById('timer');
+    
+    const interval = setInterval(() => {
+      if (timeLeft > 0) {
+        timeLeft--;
+        timerElement.textContent = `Cooking Time: ${timeLeft} minutes`;
+      } else {
+        clearInterval(interval);
+        timerElement.textContent = 'Cooking Time: Done!';
+      }
+    }, 60000); // Update every minute
+  }
+  startTimer();
+  
+  // Timer functionality for preparation time (second recipe)
+  function startTimer2() {
+    let timeLeft = 15; // 15 minutes for the second recipe
+    const timerElement2 = document.getElementById('timer2');
+    
+    const interval = setInterval(() => {
+      if (timeLeft > 0) {
+        timeLeft--;
+        timerElement2.textContent = `Preparation Time: ${timeLeft} minutes`;
+      } else {
+        clearInterval(interval);
+        timerElement2.textContent = 'Preparation Time: Done!';
+      }
+    }, 60000); // Update every minute
+  }
+  startTimer2();
+
+  // Handle form submission (for user-submitted recipes)
+  document.getElementById('recipe-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Your recipe has been submitted!');
+  });
+</script>
+
+</body>
+</html>

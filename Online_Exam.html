@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .exam-container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h2 {
+      color: #333;
+    }
+    .question input[type="radio"] {
+      margin-right: 10px;
+    }
+    .timer {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+<div class="exam-container">
+  <h1>Online Exam</h1>
+
+  <div class="timer" id="timer">Time Remaining: 10:00</div>
+
+  <form id="examForm">
+    <div class="question">
+      <h2>1. What is the capital of France?</h2>
+      <input type="radio" name="q1" value="A"> A) London<br>
+      <input type="radio" name="q1" value="B"> B) Berlin<br>
+      <input type="radio" name="q1" value="C"> C) Paris<br>
+      <input type="radio" name="q1" value="D"> D) Madrid<br>
+    </div>
+
+    <div class="question">
+      <h2>2. What is 2 + 2?</h2>
+      <input type="radio" name="q2" value="A"> A) 3<br>
+      <input type="radio" name="q2" value="B"> B) 4<br>
+      <input type="radio" name="q2" value="C"> C) 5<br>
+      <input type="radio" name="q2" value="D"> D) 6<br>
+    </div>
+
+    <div class="question">
+      <h2>3. What is the color of the sky?</h2>
+      <input type="radio" name="q3" value="A"> A) Blue<br>
+      <input type="radio" name="q3" value="B"> B) Green<br>
+      <input type="radio" name="q3" value="C"> C) Yellow<br>
+      <input type="radio" name="q3" value="D"> D) Red<br>
+    </div>
+
+    <button type="button" onclick="submitExam()">Submit Exam</button>
+  </form>
+
+  <div class="result" id="result">
+    <p>Your score: <span id="score"></span></p>
+  </div>
+</div>
+
+<script>
+  // Timer Logic
+  var timeRemaining = 600; // 10 minutes in seconds
+  var timerElement = document.getElementById("timer");
+
+  function startTimer() {
+    var interval = setInterval(function() {
+      var minutes = Math.floor(timeRemaining / 60);
+      var seconds = timeRemaining % 60;
+      timerElement.textContent = "Time Remaining: " + minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+      
+      if (timeRemaining === 0) {
+        clearInterval(interval);
+        alert("Time's up! Submitting your exam.");
+        submitExam();
+      }
+      timeRemaining--;
+    }, 1000);
+  }
+
+  // Start the timer when the page loads
+  window.onload = startTimer;
+
+  // Submit the exam
+  function submitExam() {
+    var form = document.getElementById('examForm');
+    var score = 0;
+
+    // Check answers
+    if (form.q1.value === "C") score++;
+    if (form.q2.value === "B") score++;
+    if (form.q3.value === "A") score++;
+
+    // Show result
+    document.getElementById("score").textContent = score + "/3";
+    document.getElementById("result").style.display = "block";
+  }
+</script>
+
+</body>
+</html>

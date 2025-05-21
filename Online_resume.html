@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Resume</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .resume {
+      background: white;
+      max-width: 800px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header p {
+      color: #666;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      background: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background: #005fa3;
+    }
+    
+    /* Print Styles */
+    @media print {
+      .download-btn {
+        display: none;
+      }
+      body {
+        background: white;
+      }
+      .resume {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="resume">
+  <header>
+    <h1>Jane Doe</h1>
+    <p>Web Developer | UI/UX Designer</p>
+    <a href="#" class="download-btn" onclick="window.print()">Download Resume (PDF)</a>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p>Creative web developer with 5+ years of experience in building modern, responsive websites and applications. Passionate about user-centered design and performance optimization.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5, CSS3, JavaScript</li>
+      <li>React, Vue.js, Node.js</li>
+      <li>UI/UX Design, Figma, Adobe XD</li>
+      <li>Responsive Design, SEO Optimization</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Senior Web Developer</strong> - Tech Solutions Inc. (2021–Present)</li>
+      <li><strong>Frontend Developer</strong> - Creative Agency (2018–2021)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>B.Sc. in Computer Science</strong> - XYZ University (2014–2018)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <ul>
+      <li>Email: jane.doe@example.com</li>
+      <li>Phone: (123) 456-7890</li>
+      <li>Website: www.janedoeportfolio.com</li>
+    </ul>
+  </section>
+</div>
+
+</body>
+</html>
